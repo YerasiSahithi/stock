@@ -1,0 +1,198 @@
+<body>
+
+<div class="container py-5">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                            <div class="card-header">
+                                <h3 class="mb-0 my-2">Sign Up</h3>
+                            </div>
+
+                            <div class="card-body">
+                                <div [hidden]="submitted" style="width:400px;">
+                                    <form [formGroup]="usersaveform" #saveUser1 (ngSubmit)="saveUser(saveUser1)">
+
+
+                                        <div class="form-group">
+                                            <label for="userType">User Type</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                                            <input type="text" class="form-control" formControlName="userType" placeholder="">
+                                        </div>
+                                    </div>
+
+                                        <div class="form-group">
+
+                                            <label for="id">Id</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+
+                                            <input type="number" class="form-control" formControlName="id"
+                                                data-toggle="tooltip" data-placement="right" title="User Id"
+                                                required="required">
+                                            </div>
+                                            <div class="alert alert-danger" *ngIf="(UId.touched) && (UId.invalid)"
+                                                style="margin-top: 5px;">
+                                                <span *ngIf="UId.errors.required">Id is Required</span>
+                                                <span *ngIf="UId.errors.minlength">
+
+                                                    MinLength 5 letters
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="userName">UserName</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                                            <input type="text" class="form-control" formControlName="userName"
+                                                data-toggle="tooltip" data-placement="right" title="Enter User Name"
+                                                required="required">
+                                            </div>
+                                            <div class="alert alert-danger"
+                                                *ngIf="(UserName.touched) && (UserName.invalid)"
+                                                style="margin-top: 5px;">
+
+                                                <span *ngIf="UserName.errors.required">user Name is Required</span>
+
+                                                <span *ngIf="UserName.errors.minlength">
+
+                                                    MinLength 5 characters
+
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="password">Password</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-eye-slash"></i></span>
+
+                                            <input type="password" class="form-control" formControlName="password"
+                                                data-toggle="tooltip" data-placement="right" title="Enter Password"
+                                                required="required">
+                                            </div>
+                                            <div class="alert alert-danger"
+                                                *ngIf="(Password.touched) && (Password.invalid)"
+                                                style="margin-top: 5px;">
+
+                                                <span *ngIf="Password.errors.required">Password is Required</span>
+
+                                                <span *ngIf="Password.errors.minlength">
+                                                        Minimum 5 characters is required
+
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="email">Email</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+                                            <input type="email" class="form-control" id="email"formControlName="email"data-toggle="tooltip"data-placement="right" title="Enter Email"
+                                                placeholder="@gmail.com" required="required">
+                                            </div>
+
+                                                <div class="alert alert-danger"
+                                                *ngIf="(Email.touched) && (Email.invalid)"
+                                                style="margin-top: 5px;">
+
+                                                <span *ngIf="Email.errors.required">Email is Required</span>
+
+                                                <span *ngIf="Email.errors.minlength">
+
+                                                    Invalid Email Format
+
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="phone">Phone</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                    
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                data-toggle="tooltip" data-placement="right" title="Enter phone"
+                                                required="required">
+                                            </div>
+
+                                            <div class="alert alert-danger" *ngIf="(Phone.touched) && (Phone.invalid)"
+                                                style="margin-top: 5px;">
+
+                                                <span *ngIf="Phone.errors.required">Number is Required</span>
+                                                <span *ngIf="Phone.errors.maxlength">
+
+                                                    Maxlength 10 characters
+
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <label for="confirmed">Confirm</label>
+                                            <div class="input-group">
+  
+                                                <span class="input-group-addon"><i class="fa fa-check"></i></span>
+
+                                            <input type="text" class="form-control" formControlName="confirmed"id="confirmed" placeholder=""
+                                                required="required">
+                                        </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                             
+                                             
+                                             
+                                                 <label for="profileImage">Upload Image</label>
+                                                 <div class="input-group">
+  
+                                                    <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+    
+                                             
+                                                <input formControlName="profileImage" class="form-control" type="file" (change)="selectFile($event)">
+                                             </div>
+                                             
+                                                </div>
+                                             
+                                             
+                                     <br><br>   <button type="submit"
+                                            class="btn btn-success btn-lg float-right">Register</button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div [hidden]="!submitted">
+
+                                <button (click)="usersaveform()"></button>
+                                </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>

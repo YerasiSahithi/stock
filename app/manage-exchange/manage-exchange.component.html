@@ -1,0 +1,138 @@
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a routerLink="/import-data">Import Data</a></li>
+            <li><a routerLink="/companylist">Manage Company</a></li>
+            <li><a routerLink="/exchangelist">Manage Exchange</a></li>
+            <li><a routerLink ="/ipo-list">Update IPO Details</a></li>
+            <li><a routerLink ="/sectorlist">Sectors</a></li>
+      
+          </ul>
+      
+        </div>
+      </nav>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+
+                            <h3 class="mb-0 my-2">Stock Exchange</h3>
+                            <div [hidden]="submitted" style="width:400px;">
+                                <form [formGroup]="exchangesaveform" #saveStockExchange1 (ngSubmit)="saveStockExchange(saveStockExchange1)">
+
+
+                                    <div class="form-group">
+                                        <label for="id">Id</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+
+                                        <input type="number" class="form-control" formControlName="id" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label for="stockExchange">Stock Exchange</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-line-chart"></i></span>
+
+                                        <input type="text" class="form-control" formControlName="stockExchange"
+                                            data-toggle="tooltip" data-placement="right" title="StockExchange"
+                                            required="required">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="(StockExchange.touched) && (StockExchange.invalid)"
+                                            style="margin-top: 5px;">
+                                            <span *ngIf="StockExchange.errors.required">Stock Exchange is Required</span>
+                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label for="brief">Brief</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-sticky-note-o"></i></span>
+
+                                        <input type="text" class="form-control" formControlName="brief"
+                                            data-toggle="tooltip" data-placement="right" title="Enter Ceo Name"
+                                            required="required">
+                                        </div>
+                                        <div class="alert alert-danger"
+                                            *ngIf="(Brief.touched) && (Brief.invalid)"
+                                            style="margin-top: 5px;">
+
+                                            <span *ngIf="Brief.errors.required">Brief is Required</span>
+
+            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label for="contactAddress">Contact Address</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
+
+                                        <input type="text" class="form-control" formControlName="contactAddress"
+                                            data-toggle="tooltip" data-placement="right" title="Enter Password"
+                                            required="required">
+                                        </div>
+                                        <div class="alert alert-danger"
+                                            *ngIf="(ContactAddress.touched) && (ContactAddress.invalid)"
+                                            style="margin-top: 5px;">
+                                            <span *ngIf="ContactAddress.errors.required"> Must Specify</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="remarks">Remarks</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-bookmark-o"></i></span>
+
+                                        <input type="text" class="form-control" id="remarks"formControlName="remarks"data-toggle="tooltip"data-placement="right" title="Enter Email"
+                                            placeholder="" required="required">
+                                        </div>
+                                            <div class="alert alert-danger"
+                                            *ngIf="(Remarks.touched) && (Remarks.invalid)"
+                                            style="margin-top: 5px;">
+
+                                            <span *ngIf="Remarks.errors.required">Sector is Required</span>
+
+                                            
+                                        </div>
+                                    </div>
+                                    <button type="submit"
+                                        class="btn btn-success btn-lg float-right">Add</button>
+
+                                </form>
+
+                            </div>
+
+                        
+                    </div>
+                    <div [hidden]="!submitted">
+
+                        <button (click)="exchangesaveform()"></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+    
+</div>    <!--/container-->
+</body>

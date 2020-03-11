@@ -1,0 +1,110 @@
+<body>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+
+                            <h3 class="mb-0 my-2">Create StockPrice</h3>
+                            <div [hidden]="submitted" style="width:400px;">
+                                <form [formGroup]="stockpricesaveform" #saveStockPrice1 (ngSubmit)="saveStockPrice(saveStockPrice1)">
+
+
+                                    <div class="form-group">
+                                        <label for="companyCode">Company Code</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-building-o"></i></span>
+
+
+                                        <input type="number" class="form-control" formControlName="companyCode" placeholder="">
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+
+                                        <label for="stockExchange">Stock Exchange</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-line-chart"></i></span>
+
+                                        <input type="text" class="form-control" formControlName="stockExchange" id="stockExchange"
+                                            data-toggle="tooltip" data-placement="right" title="stock exchange"
+                                            required="required">
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="(StockExchange.touched) && (StockExchange.invalid)"
+                                            style="margin-top: 5px;">
+                                            <span *ngIf="StockExchange.errors.required"> Required</span>
+                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label for="currentPrice">Current Price</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+
+                                        <input type="number" class="form-control" formControlName="currentPrice" id="currentPrice"
+                                            data-toggle="tooltip" data-placement="right" title="Enter Current Price"
+                                            required="required">
+                                        </div>
+                                        <div class="alert alert-danger"
+                                            *ngIf="(CurrentPrice.touched) && (CurrentPrice.invalid)"
+                                            style="margin-top: 5px;">
+
+                                            <span *ngIf="CurrentPrice.errors.required">Price is Required</span>
+
+            
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label for="date">Date</label>
+                                        <div class="input-group">
+  
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+
+                                        <input type="String" class="form-control" formControlName="date"id="date" placeholder=""
+                                            required="required">
+                                        </div>
+                                            <div class="alert alert-danger" *ngIf="(Date.touched) && (Date.invalid)"
+                                            style="margin-top: 5px;">
+
+                                            <span *ngIf="Date.errors.required"> Required</span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <button type="submit"
+                                        class="btn btn-success btn-lg float-right">Register</button>
+
+                                </form>
+
+                            </div>
+
+                        
+                    </div>
+                    <div [hidden]="!submitted">
+
+                        <button (click)="stockpricesaveform()"></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+    
+</div>    <!--/container-->
+</body>

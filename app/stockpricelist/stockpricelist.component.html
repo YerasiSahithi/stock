@@ -1,0 +1,32 @@
+
+<body>
+<table class="table table-hover table-sm" >
+
+    <thead class="thead-light">
+
+     <tr>
+      <th>Company Code</th>
+      <th>Stock Exchange</th>
+      <th>Current Price</th>
+      <th>Date</th>
+
+     </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stockprice of stockPriceList ">
+
+            <td>{{stockprice.companyCode}}</td>
+            <td>{{stockprice.stockExchange}}</td>
+            <td>{{stockprice.currentPrice}}</td>
+            <td>{{stockprice.date}}</td>
+            <td> <button (click)="deleteStockPrice(stockprice)" class='btn btn-danger'>Delete</button></td>
+            <td> <button (click)="updateStockPrice(stockprice)" class='btn btn-info'>Update</button></td>
+
+
+       </table>
+       <div style="text-align: center;">
+
+        <a routerLink="/stockprice" class="btn btn-success" role="button">Create StockPrice</a>
+        </div>
+        <router-outlet></router-outlet>
+    </body>

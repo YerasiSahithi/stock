@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="card card-login my-5">
+                <div class="card-body">
+            <h1 class="card-title text-center">Login </h1>
+            <div [hidden]="submitted" style="width:400px;">
+                <form [formGroup]="usersaveform" #findByUserNameAndPassword1 (ngSubmit)="findByUserNameAndPassword(findByUserNameAndPassword1)">
+
+                    <div class="form-group">
+
+
+                        <label for="userName">UserName</label>
+                        <div class="input-group">
+  
+                            <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span>
+
+                        <input type="text" class="form-control" formControlName="userName"
+                            data-toggle="tooltip" data-placement="right" title="Enter User Name"
+                            required="required">
+                        </div>
+
+                        <div class="alert alert-danger"
+                            *ngIf="(UserName.touched) && (UserName.invalid)"
+                            style="margin-top: 5px;">
+
+                            <span *ngIf="UserName.errors.required">user Name is Required</span>
+
+                            <span *ngIf="UserName.errors.minlength">
+
+                                MinLength Error
+
+                            </span>
+
+                            </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+                        
+                        
+                        <div class="input-group">
+  
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                        
+                        <input type="password" class="form-control" formControlName="password"
+                            data-toggle="tooltip" data-placement="right" title="Enter Password"
+                            required="required">
+                        </div>
+
+                        <div class="alert alert-danger"
+                            *ngIf="(Password.touched) && (Password.invalid)"
+                            style="margin-top: 5px;">
+
+                            <span *ngIf="Password.errors.required">Password is Required</span>
+
+                            <span *ngIf="Password.errors.minlength">
+
+
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Submit</button><br><br>
+
+
+                </form>
+            </div>
+            <a routerLink="/signup" class="text-center new-account" > Create an account </a>
+        </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+body {
+
+    color: #fff;
+   
+       background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20190925/pngtree-plain-background-image_315700.jpg");
+   
+   background-repeat: no-repeat;
+   
+    background-size: cover;
+    height: 550px;
+    width:1400px;
+   
+    }
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      
+  
